@@ -31,6 +31,7 @@ pipeline {
 			    }
 			}	
 		stage('Release') {
+		   environment {TAG_NAME = "${env.gitlabBranch.split('/')[2]}"}
  		   when {
 		        buildingTag()
     			}
