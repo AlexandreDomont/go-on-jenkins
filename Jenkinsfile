@@ -31,12 +31,12 @@ pipeline {
 			    }
 			}	
 		stage('Release') {
-		   environment {TAG_NAME = "${env.gitlabBranch.split('/')[2]}"}
+		   environment {
+			TAG_NAME = "${env.gitlabBranch.split('/')[2]}"
+			GITHUB_TOKEN = credentials('GITHUB_TOKEN')
+			}
  		   when {
 		        buildingTag()
-    			}
-		    environment {
-		        GITHUB_TOKEN = credentials('GITHUB_TOKEN')
     			}
 		    steps {
 		        sh 'curl -sL https://git.io/goreleaser | bash'
