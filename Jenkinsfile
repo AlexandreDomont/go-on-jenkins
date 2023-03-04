@@ -30,10 +30,14 @@ pipeline {
 			        sh 'golangci-lint run'
 			    }
 			}	
+
 		stage ('echo')
 		{
-		steps {echo "${env.gitlabBranch.split('/')[2]}" }
+			steps {
+				echo "${env.gitlabBranch.split('/')[2]}" 
+				}
 		}
+
 		stage('Release') {
 		   environment {
 			TAG_NAME = "${env.gitlabBranch.split('/')[2]}"
