@@ -3,6 +3,7 @@ pipeline {
  	environment {
         	GO111MODULE = 'auto'
 		py2Ana="0"	
+		TAG_NAME="1"
     	}	
 	tools {
 		go 'go-1.20.1'
@@ -44,7 +45,7 @@ pipeline {
 	        	"""
 			 //script {  env.py2Ana = sh (script: 'sh date', , returnStdout:true).trim()	}	
 			script {
-				def TAG_NAME = sh(returnStdout: true, script: "git tag --contains").trim() 
+				TAG_NAME = sh(returnStdout: true, script: "git tag --contains").trim() 
 				if (TAG_NAME != null) {
 				sh "echo $TAG_NAME"
 				} else {
@@ -56,14 +57,13 @@ pipeline {
 		stage ('echo')
 		{
 			environment { 
-				TAG_NAME="1" 
 				TITI="1" 
 				TOTO = 1
 				}	
 
 			steps {
 				echo "rien"
-				echo "${env.py2Ana}"
+				echo "${env.TAG_NAME}"
 				}
 
 
