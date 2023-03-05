@@ -64,6 +64,7 @@ pipeline {
 			steps {
 				echo "rien"
 				echo "${env.TAG_NAME}"
+				echo "$TAG_NAME"
 				}
 
 
