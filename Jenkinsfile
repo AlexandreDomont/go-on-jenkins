@@ -2,6 +2,7 @@ pipeline {
 	agent any
  	environment {
         	GO111MODULE = 'auto'
+		py2Ana="0"	
     	}	
 	tools {
 		go 'go-1.20.1'
