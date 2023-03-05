@@ -50,7 +50,7 @@ pipeline {
 				}	
 
 			steps {
-				echo "The value is \$mytag"
+				echo "rien"
 				}
 
 
