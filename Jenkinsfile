@@ -43,7 +43,6 @@ pipeline {
 	                    py2Ana=`git tag --contains`
 			    echo \$py2Ana	
 	        	"""
-			 //script {  env.py2Ana = sh (script: 'sh date', , returnStdout:true).trim()	}	
 			script {
 				TAG_NAME = sh(returnStdout: true, script: "git tag --contains").trim() 
 				if (TAG_NAME != null) {
@@ -56,15 +55,10 @@ pipeline {
 
 		stage ('echo')
 		{
-			environment { 
-				TITI="1" 
-				TOTO = 1
-				}	
 
 			steps {
-				echo "rien"
-				echo "${env.TAG_NAME}"
-				echo "$TAG_NAME"
+				//echo "${env.TAG_NAME}"
+				echo "N° du TAG : $TAG_NAME"
 				}
 
 
