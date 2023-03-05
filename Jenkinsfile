@@ -40,7 +40,7 @@ pipeline {
 				sh """ env """
 
 				script  {
-         				 env.TAG_NAME = "2"
+         				env.TAG_NAME = "2"
 					echo TAG_NAME
         				}
 					echo $env.TAG_NAME	
@@ -49,7 +49,7 @@ pipeline {
 		}
 
 		stage('Release') {
-		   environment {
+		   /*environment {
 			GITHUB_TOKEN = credentials('GITHUB_TOKEN')
 			}
  		   when {
@@ -58,6 +58,7 @@ pipeline {
 		    steps {
 		        sh 'curl -sL https://git.io/goreleaser | bash'
 		    }	
+		*/
 		}	
 		}
 }
