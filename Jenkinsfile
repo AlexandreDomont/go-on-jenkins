@@ -31,14 +31,13 @@ pipeline {
 			    }
 			}	*/
 
-		stage ('alex')
+		stage ('Get TAG')
 		{
 			
 			steps {
 			sh """#!/bin/bash
-        		    myvar= "git tag --contains"
-			
-		            echo "The value is \$myvar"
+        		    mytag= "git tag --contains"
+		            echo "The value is \$mytag"
 	        	"""	}
 		}
 
@@ -51,18 +50,7 @@ pipeline {
 				}	
 
 			steps {
-				echo "1 : $env.TAG_NAME " 
-				sh 'git tag --contains'
-				//sh 'env.TITI = $(git tag --contains) && echo $env.TITI'
-
-				script  {
-         				env.TOTO = sh(script: 'git tag --contains', returnStdout: true,).trim() 
-					sh 'env.TOTO = $(git tag --contains)'				
-					echo "Current user is ${env.TOTO}"	
-					//echo "sh(script: 'git tag --points-at HEAD', returnStdout: true,).trim()"
-					//echo "sh(script: 'git tag --contains', returnStdout: true,).trim()"	
-        				}
-				//echo "$env.TAG_NAME"
+				echo "The value is \$mytag"
 				}
 
 
