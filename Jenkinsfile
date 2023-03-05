@@ -37,13 +37,13 @@ pipeline {
 			steps {
 				echo "$env.TAG_NAME ${env.BRANCH_NAME} " 
 				sh 'git tag --contains'
-				sh """ env """
+				//sh """ env """
 
 				script  {
-         				env.TAG_NAME = "2"
-					echo TAG_NAME
+         				env.TAG_NAME = sh(script: 'git tag --points-at HEAD', returnStdout: true,).trim() 
+					echo $env.TAG_NAME
         				}
-					echo TAG_NAME	
+					echo $env.TAG_NAME	
 				}
 
 		}
