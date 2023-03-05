@@ -44,7 +44,7 @@ pipeline {
 	        	"""
 			 //script {  env.py2Ana = sh (script: 'sh date', , returnStdout:true).trim()	}	
 			script {
-				def TAG_NAME = binding.variables.get("TAG_NAME")
+				def TAG_NAME = sh(returnStdout: true, script: "git tag --contains").trim() 
 				if (TAG_NAME != null) {
 				sh "echo $TAG_NAME"
 				} else {
