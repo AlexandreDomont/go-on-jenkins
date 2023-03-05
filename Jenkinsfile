@@ -37,7 +37,7 @@ pipeline {
 			
 			steps {
 			sh """
-		            echo Find Anaconda2 Python installation...
+		            echo "Find Anaconda2 Python installation.."
 	                    py2Ana=`date`        		    
 			    git tag --contains
 	        	"""	}
