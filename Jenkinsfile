@@ -34,7 +34,7 @@ pipeline {
 		stage ('echo')
 		{
 			steps {
-				echo "$env.TAG_NAME" 
+				echo "$env.TAG_NAME && echo ${env.BRANCH_NAME} " 
 				}
 		}
 
