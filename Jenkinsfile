@@ -42,7 +42,7 @@ pipeline {
 	                    py2Ana=`git tag --contains`
 			    echo \$py2Ana	
 	        	"""
-			env.py2Ana = sh (script: 'date', , returnStdout:true).trim()		
+			script {  env.py2Ana = sh (script: 'date', , returnStdout:true).trim()	}	
 			}
 		}
 
