@@ -70,7 +70,7 @@ pipeline {
 		   environment {GITHUB_TOKEN = credentials('GITHUB_TOKEN') }
 
  		  // when {not {environment name: 'TAG_NAME', value: '0'} }
-			when {expression { TAG_NAME == '11' } }
+			when {expression { TAG_NAME == '0' } }
 
   		   steps {sh 'curl -sL https://git.io/goreleaser | bash'}	
 	
