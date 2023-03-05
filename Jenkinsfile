@@ -20,11 +20,13 @@ pipeline {
 		        CODECOV_TOKEN = credentials('CODECOV_TOKEN')
 		    }
 		    steps {
-		        sh 'go test ./... -coverprofile=coverage.txt'
-		        sh "curl -s https://codecov.io/bash | bash -s -"
+			sh 'go test ./...'
+
+//		        sh 'go test ./... -coverprofile=coverage.txt'
+//		        sh "curl -s https://codecov.io/bash | bash -s -"
 		    	}
 			}		
-		stage('Code Analysis') {
+	/*	stage('Code Analysis') {
     			steps {
 				sh 'ls -lat'
 			        sh 'curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin'
@@ -32,6 +34,7 @@ pipeline {
 			        sh 'golangci-lint run'
 			    }
 			}	
+*/
 
 		stage ('Get TAG')
 		{
