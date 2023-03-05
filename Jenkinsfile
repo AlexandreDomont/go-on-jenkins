@@ -54,7 +54,7 @@ pipeline {
 
 			steps {
 				echo "rien"
-				echo $py2Ana	
+				echo $env.py2Ana	
 				}
 
 
