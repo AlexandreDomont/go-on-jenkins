@@ -33,11 +33,12 @@ pipeline {
 
 		stage ('Get TAG')
 		{
+				
 			
 			steps {
 			sh """
 		            echo Find Anaconda2 Python installation...
-	                    py2Ana=`which -a python | grep --max-count=1 anaconda2`        		    
+	                    py2Ana=`date`        		    
 			    git tag --contains
 	        	"""	}
 		}
