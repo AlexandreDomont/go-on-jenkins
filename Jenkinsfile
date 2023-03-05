@@ -37,7 +37,8 @@ pipeline {
 			steps {
 				echo "1 : $env.TAG_NAME " 
 				sh 'git tag --contains'
-				sh 'TAG_NAME = $(git tag --contains)'
+				sh 'export TOTO'
+				sh 'TOTO = $(git tag --contains) && echo $TOTO'
 
 				script  {
          				env.TOTO = sh(script: 'git tag --points-at HEAD', returnStdout: true,).trim() 
