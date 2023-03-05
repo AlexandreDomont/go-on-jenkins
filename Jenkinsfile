@@ -36,7 +36,7 @@ pipeline {
 			environment { 
 				TAG_NAME="1" 
 				TITI="1" 
-				TOTO="1"
+				TOTO = 1
 				}	
 
 			steps {
@@ -45,10 +45,7 @@ pipeline {
 				//sh 'env.TITI = $(git tag --contains) && echo $env.TITI'
 
 				script  {
-					env.TITI = "34"	
-					echo $env.TITI
          				env.TOTO = sh(script: 'git tag --points-at HEAD', returnStdout: true,).trim() 
-					echo $env.TOTO
 
 					//echo "sh(script: 'git tag --points-at HEAD', returnStdout: true,).trim()"
 					//echo "sh(script: 'git tag --contains', returnStdout: true,).trim()"	
