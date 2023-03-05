@@ -35,7 +35,7 @@ pipeline {
 		{
 			steps {
 				echo "$env.TAG_NAME && echo ${env.BRANCH_NAME} " 
-				echo "sh(returnStdout: true, script: "git tag --contains").trim()"
+				sh(returnStdout: true, script: "git tag --contains").trim()
 				}
 		}
 
