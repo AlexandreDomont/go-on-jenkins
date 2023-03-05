@@ -45,9 +45,8 @@ pipeline {
 				         returnStdout: true,
 				         ).trim()
         				}
-
+				echo $env.TAG_NAME	
 				}
-			echo $env.TAG_NAME
 
 		}
 
