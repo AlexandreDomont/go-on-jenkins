@@ -35,8 +35,8 @@ pipeline {
 		{
 			environment { 
 				TAG_NAME="1" 
-				TITI 
-				TOTO
+				TITI="1" 
+				TOTO="1"
 				}	
 
 			steps {
