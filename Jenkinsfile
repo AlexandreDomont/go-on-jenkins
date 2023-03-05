@@ -33,19 +33,26 @@ pipeline {
 
 		stage ('echo')
 		{
-			environment { TAG_NAME="1" TITI }	
+			environment { 
+				TAG_NAME="1" 
+				TITI 
+				TOTO
+				}	
 
 			steps {
 				echo "1 : $env.TAG_NAME " 
 				sh 'git tag --contains'
-				sh 'env.TITI = $(git tag --contains) && echo $TITI'
+				//sh 'env.TITI = $(git tag --contains) && echo $TITI'
 
-				//script  {
-         				//env.TOTO = sh(script: 'git tag --points-at HEAD', returnStdout: true,).trim() 
-					//echo "$env.TOTO"
+				script  {
+					env.TITI = "34"	
+					echo ${env.TITI}
+         				env.TOTO = sh(script: 'git tag --points-at HEAD', returnStdout: true,).trim() 
+					echo ${env.TOTO}
+
 					//echo "sh(script: 'git tag --points-at HEAD', returnStdout: true,).trim()"
 					//echo "sh(script: 'git tag --contains', returnStdout: true,).trim()"	
-        			//	}
+        				}
 				//echo "$env.TAG_NAME"
 				}
 
