@@ -59,8 +59,6 @@ pipeline {
 			steps {
 				//echo "${env.TAG_NAME}"
 				echo "N° du TAG : $TAG_NAME"
-			//	echo "Building $BRANCH_NAME"
-			//	echo "Building $TAG_NAME"	
 				}
 
 
