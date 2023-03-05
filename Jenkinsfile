@@ -36,7 +36,8 @@ pipeline {
 			
 			steps {
 			sh """#!/bin/bash
-        		    mytag= "git tag --contains"
+        		    mytag = TOOT
+			    git tag --contains
 		            echo "The value is \$mytag"
 	        	"""	}
 		}
