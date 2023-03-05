@@ -35,12 +35,10 @@ pipeline {
 		{
 			
 			steps {
-			sh """#!/bin/bash
-        		    mytag="1"
-			    my0='echo '4*a(1)' | bc -l'
-			    echo $my0		
+			sh """
+		            echo Find Anaconda2 Python installation...
+	                    py2Ana=`which -a python | grep --max-count=1 anaconda2`        		    
 			    git tag --contains
-		            echo "The value is \$mytag"
 	        	"""	}
 		}
 
