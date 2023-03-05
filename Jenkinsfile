@@ -40,7 +40,6 @@ pipeline {
 
 		stage('Release') {
 		   environment {
-			#TAG_NAME = "${env.gitlabBranch.split('/')[2]}"
 			GITHUB_TOKEN = credentials('GITHUB_TOKEN')
 			}
  		   when {
