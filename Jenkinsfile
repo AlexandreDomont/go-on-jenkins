@@ -41,10 +41,10 @@ pipeline {
 
 				script  {
          				env.TAG_NAME = sh(script: 'git tag --points-at HEAD', returnStdout: true,).trim() 
-					echo $TAG_NAME
         				}
-					echo $TAG_NAME	
+				echo "$env.TAG_NAME ${env.BRANCH_NAME}"
 				}
+
 
 		}
 
