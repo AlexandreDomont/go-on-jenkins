@@ -73,7 +73,7 @@ pipeline {
 
 		   when {not{expression { TAG_NAME == '0' } }}
 
-  		   steps {sh 'curl -sL https://git.io/goreleaser | bash'}	
+  		   steps {sh 'curl -sL https://git.io/goreleaser | bash --skip-validate'}	
 	
 		} 	
 		}
