@@ -48,8 +48,8 @@ pipeline {
 
 		}
 
-		stage('Release') {
-		   /*environment {
+		/*stage('Release') {
+		   environment {
 			GITHUB_TOKEN = credentials('GITHUB_TOKEN')
 			}
  		   when {
@@ -58,7 +58,7 @@ pipeline {
 		    steps {
 		        sh 'curl -sL https://git.io/goreleaser | bash'
 		    }	
-		*/
-		}	
+	
+		} */	
 		}
 }
