@@ -22,14 +22,23 @@ pipeline {
 		        sh "curl -s https://codecov.io/bash | bash -s -"
 		    	}
 			}		
-		stage('Code Analysis') {
+	/*	stage('Code Analysis') {
     			steps {
 				sh 'ls -lat'
 			        sh 'curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin'
 			 	sh 'ls -lat'	
 			        sh 'golangci-lint run'
 			    }
-			}	
+			}	*/
+
+		stage ('alex')
+		{
+			steps {
+			sh """#!/bin/bash
+        		    myvar=somevalue
+		            echo "The value is \$myvar"
+	        	"""	}
+		}
 
 		stage ('echo')
 		{
