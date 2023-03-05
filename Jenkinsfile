@@ -76,8 +76,10 @@ pipeline {
 
 		   when {not{expression { TAG_NAME == '0' } }}
 
-  		   steps {  sh 'git add .' } 
-			sh 'curl -sfL https://goreleaser.com/static/run | bash'}	
+  		   steps {  
+			sh 'git add .' 
+			sh 'curl -sfL https://goreleaser.com/static/run | bash'
+			}	
 	
 		} 	
 		}
