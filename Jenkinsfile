@@ -35,9 +35,11 @@ pipeline {
 		{
 			environment { TAG_NAME="1" }	
 			steps {
-				echo "$env.TAG_NAME && echo ${env.BRANCH_NAME} " 
+				echo "$env.TAG_NAME ${env.BRANCH_NAME} " 
 				sh 'git tag --contains'
 				sh """ env """
+			 	env.TAG_NAME = bat(script:'git tag --contains', returnStdout: true).trim()	
+				echo $env.TAG_NAME
 				}
 		}
 
