@@ -38,11 +38,13 @@ pipeline {
 				
 			
 			steps {
+			// DECLARATIVE 
 			sh """
 		            echo "Find Anaconda2 Python installation.."
 	                    py2Ana=`git tag --contains`
 			    echo \$py2Ana	
 	        	"""
+			// SCRIPTED
 			script {
 				TAG_NAME = sh(returnStdout: true, script: "git tag --contains").trim() 
 				if (TAG_NAME != '') {
@@ -69,8 +71,7 @@ pipeline {
 
 		   environment {GITHUB_TOKEN = credentials('GITHUB_TOKEN') }
 
- 		  // when {not {environment name: 'TAG_NAME', value: '0'} }
-			when {not{expression { TAG_NAME == '0' } }}
+		   when {not{expression { TAG_NAME == '0' } }}
 
   		   steps {sh 'curl -sL https://git.io/goreleaser | bash'}	
 	
