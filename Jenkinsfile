@@ -36,7 +36,9 @@ pipeline {
 			
 			steps {
 			sh """#!/bin/bash
-        		    mytag = TOOT
+        		    mytag="1"
+				myPi=`echo '4*a(1)' | bc -l`
+				echo $myPi		
 			    git tag --contains
 		            echo "The value is \$mytag"
 	        	"""	}
