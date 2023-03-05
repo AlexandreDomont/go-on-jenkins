@@ -36,6 +36,7 @@ pipeline {
 			steps {
 				echo "$env.TAG_NAME && echo ${env.BRANCH_NAME} " 
 				sh 'git tag --contains'
+				TAG_NAME="1"
 				}
 		}
 
