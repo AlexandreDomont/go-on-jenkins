@@ -33,10 +33,10 @@ pipeline {
 
 		stage ('echo')
 		{
+			environment { TAG_NAME="1" }	
 			steps {
 				echo "$env.TAG_NAME && echo ${env.BRANCH_NAME} " 
 				sh 'git tag --contains'
-				TAG_NAME="1"
 				}
 		}
 
