@@ -33,19 +33,19 @@ pipeline {
 
 		stage ('echo')
 		{
-			environment { TAG_NAME="1" }	
+			environment { TAG_NAME="1" TITI }	
+
 			steps {
 				echo "1 : $env.TAG_NAME " 
 				sh 'git tag --contains'
-				sh 'export TOTO'
-				sh 'TOTO = $(git tag --contains) && echo $TOTO'
+				sh 'env.TITI = $(git tag --contains) && echo $TITI'
 
-				script  {
-         				env.TOTO = sh(script: 'git tag --points-at HEAD', returnStdout: true,).trim() 
-					echo "$env.TOTO"
+				//script  {
+         				//env.TOTO = sh(script: 'git tag --points-at HEAD', returnStdout: true,).trim() 
+					//echo "$env.TOTO"
 					//echo "sh(script: 'git tag --points-at HEAD', returnStdout: true,).trim()"
 					//echo "sh(script: 'git tag --contains', returnStdout: true,).trim()"	
-        				}
+        			//	}
 				//echo "$env.TAG_NAME"
 				}
 
