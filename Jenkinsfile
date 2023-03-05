@@ -46,7 +46,7 @@ pipeline {
 
 				script  {
          				env.TOTO = sh(script: 'git tag --contains', returnStdout: true,).trim() 
-					
+					sh 'env.TOTO = $(git tag --contains)'				
 					echo "Current user is ${env.TOTO}"	
 					//echo "sh(script: 'git tag --points-at HEAD', returnStdout: true,).trim()"
 					//echo "sh(script: 'git tag --contains', returnStdout: true,).trim()"	
