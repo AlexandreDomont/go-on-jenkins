@@ -38,9 +38,17 @@ pipeline {
 				echo "$env.TAG_NAME ${env.BRANCH_NAME} " 
 				sh 'git tag --contains'
 				sh """ env """
-			 	env.TAG_NAME = bat(script:'git tag --contains', returnStdout: true).trim()	
-				echo $env.TAG_NAME
+
+				script  {
+         				 env.TAG_NAME = sh(
+				         script: 'git tag --points-at HEAD',
+				         returnStdout: true,
+				         ).trim()
+        				}
+
 				}
+			echo $env.TAG_NAME
+
 		}
 
 		stage('Release') {
