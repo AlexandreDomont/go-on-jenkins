@@ -35,18 +35,18 @@ pipeline {
 		{
 			environment { TAG_NAME="1" }	
 			steps {
-				echo "$env.TAG_NAME ${env.BRANCH_NAME} " 
-				sh 'git tag --contains'
-				sh 'env.TAG_NAME = $(git tag --contains)'
+				echo "1 : $env.TAG_NAME " 
+				sh 'echo 2 && git tag --contains'
+				sh 'echo 3 && env.TAG_NAME = $(git tag --contains)'
 				//sh """ env """
 
 				script  {
          				env.TOTO = sh(script: 'git tag --points-at HEAD', returnStdout: true,).trim() 
 					echo "$env.TOTO"
-					echo "sh(script: 'git tag --points-at HEAD', returnStdout: true,).trim()"
-					echo "sh(script: 'git tag --contains', returnStdout: true,).trim()"	
+					//echo "sh(script: 'git tag --points-at HEAD', returnStdout: true,).trim()"
+					//echo "sh(script: 'git tag --contains', returnStdout: true,).trim()"	
         				}
-				echo "$env.TAG_NAME"
+				//echo "$env.TAG_NAME"
 				}
 
 
