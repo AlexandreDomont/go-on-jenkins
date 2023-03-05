@@ -42,7 +42,7 @@ pipeline {
 			steps {
 				echo "1 : $env.TAG_NAME " 
 				sh 'git tag --contains'
-				sh 'env.TITI = $(git tag --contains) && echo $env.TITI'
+				//sh 'env.TITI = $(git tag --contains) && echo $env.TITI'
 
 				script  {
 					env.TITI = "34"	
