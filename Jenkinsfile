@@ -53,6 +53,7 @@ pipeline {
 
 			steps {
 				echo "rien"
+				echo \$py2Ana	
 				}
 
 
