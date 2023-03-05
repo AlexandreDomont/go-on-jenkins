@@ -59,6 +59,8 @@ pipeline {
 			steps {
 				//echo "${env.TAG_NAME}"
 				echo "N° du TAG : $TAG_NAME"
+				echo "Building $BRANCH_NAME"
+				echo "Building $TAG_NAME"	
 				}
 
 
@@ -69,7 +71,7 @@ pipeline {
 			GITHUB_TOKEN = credentials('GITHUB_TOKEN')
 			}
  		  	when { 
-				allOf {	env.TAG_NAME != ''}
+				allOf {	environment name: 'TAG_NAME', value: ''}
 			}
   		   steps {
 		        sh 'curl -sL https://git.io/goreleaser | bash'
