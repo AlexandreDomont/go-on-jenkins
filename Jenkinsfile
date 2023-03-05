@@ -40,7 +40,8 @@ pipeline {
 				//sh """ env """
 
 				script  {
-         				env.TAG_NAME = sh(script: 'git tag --points-at HEAD', returnStdout: true,).trim() 
+         				env.TOTO = sh(script: 'git tag --points-at HEAD', returnStdout: true,).trim() 
+					echo "$env.TOTO"
 					echo "sh(script: 'git tag --points-at HEAD', returnStdout: true,).trim()"
 					echo "sh(script: 'git tag --contains', returnStdout: true,).trim()"	
         				}
