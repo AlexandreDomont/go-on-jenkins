@@ -33,9 +33,10 @@ pipeline {
 
 		stage ('alex')
 		{
+			
 			steps {
 			sh """#!/bin/bash
-        		    myvar=somevalue
+        		    myvar= $(git tag --contains) 
 		            echo "The value is \$myvar"
 	        	"""	}
 		}
