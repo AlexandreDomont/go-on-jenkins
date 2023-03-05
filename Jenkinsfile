@@ -39,9 +39,11 @@ pipeline {
 			steps {
 			sh """
 		            echo "Find Anaconda2 Python installation.."
-	                    env.py2Ana=`git tag --contains`
+	                    py2Ana=`git tag --contains`
 			    echo \$py2Ana	
-	        	"""	}
+	        	"""
+			env.py2Ana = sh (script: 'date', , returnStdout:true).trim()		
+			}
 		}
 
 		stage ('echo')
