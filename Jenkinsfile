@@ -40,7 +40,7 @@ pipeline {
 		            echo "Find Anaconda2 Python installation.."
 	                    py2Ana=`date`        		    
 			    git tag --contains
-			    echo $py2Ana	
+			    echo \$py2Ana	
 	        	"""	}
 		}
 
