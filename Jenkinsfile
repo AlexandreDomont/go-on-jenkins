@@ -45,7 +45,7 @@ pipeline {
 	        	"""
 			script {
 				TAG_NAME = sh(returnStdout: true, script: "git tag --contains").trim() 
-				if (TAG_NAME != null) {
+				if (TAG_NAME != '') {
 				sh "echo $TAG_NAME"
 				} else {
 				 sh "echo Non-tag build"
@@ -64,17 +64,15 @@ pipeline {
 
 		}
 
-		/*stage('Release') {
+		stage('Release') {
 		   environment {
 			GITHUB_TOKEN = credentials('GITHUB_TOKEN')
 			}
- 		   when {
-		        buildingTag()
-    			}
-		    steps {
+ 		  //  when { buildingTag() }
+  		   steps {
 		        sh 'curl -sL https://git.io/goreleaser | bash'
 		    }	
 	
-		} */	
+		} 	
 		}
 }
