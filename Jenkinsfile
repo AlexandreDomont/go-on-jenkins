@@ -23,7 +23,7 @@ pipeline {
 			sh 'go test ./...'
 
 		        sh 'go test ./... -coverprofile=coverage.txt'
-		 	go tool cover -html=coverage.txt -o coverage.html	
+		 	sh 'go tool cover -html=coverage.txt -o coverage.html'
 //		        sh "curl -s https://codecov.io/bash | bash -s -"
 		    	}
 			}		
