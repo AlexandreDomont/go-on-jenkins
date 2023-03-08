@@ -24,8 +24,8 @@ pipeline {
 
 		        sh 'go test ./... -coverprofile=coverage.txt'
 		 	sh 'go tool cover -html=coverage.txt -o coverage.html'
-			sh 'go .'
-//		        sh "curl -s https://codecov.io/bash | bash -s -"
+			sh 'go go-on-jenkins'
+		        sh "curl -s https://codecov.io/bash | bash -s -"
 		    	}
 			}		
 	/*	stage('Code Analysis') {
